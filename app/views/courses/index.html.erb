@@ -1,0 +1,22 @@
+<h1>課程</h1>
+
+<%= link_to "add comment", new_course_path %>
+
+  <table>
+    <thead>
+      <tr>
+        <td>name</td>
+        <td>comment</td>
+    </thead>
+    <tbody>
+      <% @courses.each do |course| %>
+        <td><%=course.name%></td>
+        <td><%=course.comment%></td>
+        <td>
+          <%= link_to "edit", edit_course_path(course) %>
+          <%= link_to "delete", course_path(course), method: "delete", data: { confirm: "Do you sure?" } %>
+        </td>
+      <% end %>
+    </tbody>
+  </tr>
+  </table>
